@@ -30,6 +30,7 @@ export const db = mysql.createConnection({
   password: 'suaSenha',
   database: 'crud'
 });
+
 2. Execute o script SQL para criar a tabela livros no banco de dados:
    CREATE TABLE livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -37,8 +38,8 @@ export const db = mysql.createConnection({
     autor VARCHAR(255) NOT NULL,
     lancamento DATE NOT NULL,
     disponivel BOOLEAN NOT NULL
-);
-3. Adicione restrições de unicidade para evitar duplicatas:
+
+2. Adicione restrições de unicidade para evitar duplicatas:
   ALTER TABLE `crud`.`livros` 
 ADD UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE;
 ;
