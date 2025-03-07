@@ -18,11 +18,11 @@ LibraHub é um aplicativo para cadastro e gerenciamento de livros, desenvolvido 
    git clone https://github.com/seuusuario/LibraHub.git
    cd LibraHub   
 2. Instale as dependências do projeto:
-  yarn install
+  ```yarn install
 
 ## Configuração
 1. Crie um banco de dados MySQL e configure as credenciais no arquivo db.js:
-```bash
+```
 import mysql from 'mysql';
 
 export const db = mysql.createConnection({
@@ -33,7 +33,7 @@ export const db = mysql.createConnection({
 });
 
 2. Execute o script SQL para criar a tabela livros no banco de dados:
-   ```bash
+   ```
 CREATE TABLE livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
@@ -42,14 +42,14 @@ CREATE TABLE livros (
     disponivel BOOLEAN NOT NULL
 
 2. Adicione restrições de unicidade para evitar duplicatas:
-```bash
+```
    ALTER TABLE `crud`.`livros` 
    ADD UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE;
    ;
 
 ## Uso
 1.
-```bash
+```
    yarn start
 2. Abra o navegador e acesse http://localhost:8800/.
 
