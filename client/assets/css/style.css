@@ -1,12 +1,16 @@
 @charset "UTF-8";
+
+/* Importação das fontes do Google */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* Reset padrão */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Paleta de cores */
 :root {
     --color01: #a203c2b7;
     --color02: #fff;
@@ -15,12 +19,14 @@
     --font-padrao: arial, verdana, helvetica, sans-serif;
 }
 
+/* Estilização do cabeçalho */
 header {
     background-color: var(--color01);
     width: 100%;
     padding: 15px 0;
 }
 
+/* Centraliza o conteúdo do cabeçalho */
 .container { 
     max-width: 1080px;
     margin: 0 auto;
@@ -31,6 +37,7 @@ header {
     padding: 0 20px;
 }
 
+/* Logo */
 .logo h1 a {
     color: var(--color03);
     font-family: var(--font-padrao);
@@ -44,6 +51,7 @@ header {
     color: var(--color02);
 }
 
+/* Ícones do cabeçalho */
 .botao {
     position: absolute;
     right: 10px;
@@ -68,24 +76,19 @@ header {
     background-color: var(--color02)
 }
 
-/* Estilos do modal aprimorado */
+/* Modal */
 .modal {
     display: none; /* Inicialmente oculto */
     position: fixed;
-    z-index: 1000; /* Mantém acima dos outros conteúdos */
+    z-index: 1; /* Mantém acima dos outros conteúdos */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6); /* Fundo escurecido */
-    display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease-in-out;
-}
-
-.modal[data-open="true"] {
-    display: flex;
 }
 
 /* Conteúdo do modal */
@@ -108,7 +111,7 @@ header {
     to { opacity: 1; transform: translate(-50%, -50%); }
 }
 
-/* Botão de fechar */
+/* Botão de fechar do modal */
 .close {
     position: absolute;
     top: 10px;
@@ -162,6 +165,57 @@ header {
     outline: none;
 }
 
+.radio-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Estilizando os radio buttons */
+.radio-group input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color01);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: var(--color01);
+    border-color: var(--color01);
+}
+
+.radio-group input[type="radio"]::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: var(--color02);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.radio-group input[type="radio"]:checked::after {
+    display: block;
+}
+
 .button {
     width: 100%;
     padding: 12px;
@@ -179,6 +233,25 @@ header {
     background: #8200a3;
 }
 
+.mensagem {
+    display: none;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* mensagem de feedback */
+.mensagem.sucesso {
+    background-color: #4CAF50; /* Cor verde para sucesso */
+    color: white;
+}
+
+.mensagem.erro {
+    background-color: #f44336; /* Cor vermelha para erro */
+    color: white;
+}
 
 /*imagem central "Livro aberto"*/
 
@@ -191,6 +264,7 @@ main{
     text-align: center;
 }
 
+/* imagem do livro aberto */
 .livro {
     display: flex;
     justify-content: center;
