@@ -15,7 +15,7 @@ LibraHub é um aplicativo para cadastro e gerenciamento de livros, desenvolvido 
 ## Instalação
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seuusuario/LibraHub.git
+   git clone https://github.com/larimoli/LibraHub.git
    cd LibraHub   
 2. Instale as dependências do projeto:
   ```yarn install```
@@ -31,7 +31,7 @@ export const db = mysql.createConnection({
   
   user: 'root',
   
-  password: 'suaSenha',
+  password: 'senha', // solicitar senha para LariMoli
   
   database: 'crud'
 });
