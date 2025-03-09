@@ -56,9 +56,6 @@ form.addEventListener("submit", async function(event) {
     const lancamento = document.querySelector("input[name='lancamento']").value.trim();
     const disponivel = document.querySelector("input[name='disponivel']:checked")?.value || "";
 
-    // Fechar o modal antes de exibir a mensagem
-    modal.style.display = "none";
-
     // Verificando se todos os campos foram preenchidos
     if (titulo !== "" && autor !== "" && lancamento !== "" && disponivel !== "") {
         try {
@@ -77,10 +74,14 @@ form.addEventListener("submit", async function(event) {
             // Mostrar mensagem de sucesso e resetar o formulário
             showMessage("Livro cadastrado com sucesso!", true);
             form.reset(); // Limpa os campos após o cadastro
-            modal.style.display = "none"; // Fecha o modal
+            modal.style.display = "none"; // Fecha o modal apenas após o sucesso
             
         } catch (error) {
             console.error('Erro ao enviar dados:', error);
+            if (error.response) {
+                console.log('Resposta do erro:', error.response.data);
+                console.log('Status do erro:', error.response.status);
+            }
             if (error.response && error.response.status === 409) {
                 showMessage("Livro já cadastrado", false);
             } else {
@@ -91,3 +92,4 @@ form.addEventListener("submit", async function(event) {
         showMessage("Erro ao cadastrar livro. Preencha todos os campos.", false);
     }
 });
+
